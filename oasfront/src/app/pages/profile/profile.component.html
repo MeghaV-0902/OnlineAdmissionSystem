@@ -1,0 +1,57 @@
+<mat-card *ngIf="user">
+    <h2>Profile Details</h2>
+    <!-- {{user | json}} -->
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+
+                <div class="container text-center">
+                    <img src="https://jacksonvillepartycompany.com/wp-content/uploads/2018/10/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" alt="profile picture" class="profile-image">
+                <h1 class="mt20">{{user.firstName}} {{user.lastName}} </h1>
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-md-10 offset-md-1">
+                        <!-- //table details -->
+                        <table class="table1 text-center">
+                            <tr *ngIf="user.userId">
+                                <td>User ID</td>
+                                <td>{{user.userId}}</td>
+                            </tr>
+                            <tr>
+                                <td>Username</td>
+                                <td>{{user.email}}</td>
+                            </tr>
+                            <tr>
+                                <td>Role</td>
+                                <td>{{user.authorities[0].authority}}</td>
+                            </tr>
+                            <tr>
+                                <td>Email</td>
+                                <td>{{user.email}}</td>
+                            </tr>
+                            <tr>
+                                <td>Phone Number</td>
+                                <td>{{user.mobileNumber}}</td>
+                            </tr>
+                            <tr>
+                                <td>Aadhar Card Number</td>
+                                <td>{{user.aadharCardNo}}</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>{{user.enabled?"ACTIVE":"NOT ACTIVE"}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </mat-card-content>
+    <mat-card-actions class="text-center">
+        <button mat-raised-button color="primary">Update</button>
+        <button mat-raised-button color="warn">Share</button>
+    </mat-card-actions>
+</mat-card>
