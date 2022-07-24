@@ -1,0 +1,29 @@
+
+<br>
+<table class="table table-striped">
+    <thead>
+<tr>
+    <th>Application ID</th>
+    <th>Applicant Name</th>
+    <th>Applicant Email</th>
+    <th>Applicant Phone</th>
+    <th>Applied To</th>
+    <th>Course</th>
+    <th>Status</th>
+    <th>Actions</th>
+ </tr>
+    </thead>
+    <tbody>
+        <!-- interpolationoperator {{}} gives value -->
+<tr *ngFor="let a of application">
+<td> {{a.id}}</td>
+<td> {{a.name}}</td>
+<td> {{a.email}}</td>
+<td> {{a.phone}}</td>
+<td> {{a.appliedto}}</td>
+<td> {{a.course}}</td>
+<td> {{a.status}}</td>
+<td><button (click)="acceptApplication(a.id)" class="btn btn-success">Approve</button>&nbsp;&nbsp;<button (click)="rejectApplication(a.id)" class="btn btn-danger">Reject</button></td>
+</tr>
+    </tbody>
+</table> 

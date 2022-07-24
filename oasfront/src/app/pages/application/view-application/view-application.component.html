@@ -1,0 +1,27 @@
+
+<br>
+<table class="table table-striped">
+    <thead>
+<tr>
+    <th>Application ID</th>
+    <th>Applicant Name</th>
+    <th>Applicant Email</th>
+    <th>Applicant Phone</th>
+    <th>Applied To</th>
+    <th>Course</th>
+    <th>Status</th>
+ </tr>
+    </thead>
+    <tbody>
+        <!-- interpolationoperator {{}} gives value -->
+<tr *ngFor="let a of application">
+<td *ngIf="a.email == currentUser.email"> {{a.id}}</td>
+<td *ngIf="a.email == currentUser.email"> {{a.name}}</td>
+<td *ngIf="a.email == currentUser.email"> {{a.email}}</td>
+<td *ngIf="a.email == currentUser.email"> {{a.phone}}</td>
+<td *ngIf="a.email == currentUser.email"> {{a.appliedto}}</td>
+<td *ngIf="a.email == currentUser.email"> {{a.course}}</td>
+<td *ngIf="a.email == currentUser.email"> {{a.status}}</td>
+</tr>
+    </tbody>
+</table> 

@@ -10,7 +10,7 @@
                 <h1 class="mt20">{{user.firstName}} {{user.lastName}} </h1>
                 </div>
 
-                <div class="row">
+                <div class="row"> 
                     
                     <div class="col-md-10 offset-md-1">
                         <!-- //table details -->
@@ -51,7 +51,13 @@
         
     </mat-card-content>
     <mat-card-actions class="text-center">
-        <button mat-raised-button color="primary">Update</button>
-        <button mat-raised-button color="warn">Share</button>
+        <button
+        *ngIf="user && user.authorities[0].authority=='ADMIN'"
+        (click)="updateUser(user.userId)" mat-raised-button color="primary">Update</button>
+
+        <button
+        *ngIf="user && user.authorities[0].authority=='STUDENT'"
+        (click)="updateStudent(user.userId)" mat-raised-button color="primary">Update</button>
+    
     </mat-card-actions>
 </mat-card>

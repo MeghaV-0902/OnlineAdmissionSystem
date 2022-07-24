@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -11,9 +12,10 @@ import { LoginService } from 'src/app/services/login.service';
 
   isLoggedIn=false;
   user=null;
+  
 
-  constructor(public login: LoginService) { }
-
+  constructor(public login: LoginService,private router:Router) { }
+ 
   ngOnInit(): void {
     this.isLoggedIn = this.login.isLoggedIn();
     this.user = this.login.getUser();
@@ -27,6 +29,9 @@ import { LoginService } from 'src/app/services/login.service';
   {
     this.login.logout();
     window.location.reload();
+    //this.router.navigate(['/'])
+    //window.location.reload();
     // this.login.loginStatusSubject.next(false);
+
   }
 }

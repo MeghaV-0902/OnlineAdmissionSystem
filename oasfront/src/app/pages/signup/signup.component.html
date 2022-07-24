@@ -19,7 +19,7 @@
 
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Middle Name</mat-label>
-                <input
+                <input 
                 [(ngModel)]="user.middleName" name="middleName"
                 matInput placeholder="Enter Here">
               </mat-form-field>
@@ -32,30 +32,35 @@
                 matInput placeholder="Enter Here">
               </mat-form-field>
 
+              <mat-hint> <span *ngIf="email.invalid && email.touched"  class="error">Email Field is Not Valid</span></mat-hint>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Email Address</mat-label>
-                <input type="email" required
+                <input type="email" required #email="ngModel"
                 [(ngModel)]="user.email" name="email"
-                matInput placeholder="Enter Here">
+                matInput placeholder="Enter Here" ngModel>                
               </mat-form-field>
-
+             
+              <mat-hint> <span *ngIf="number.invalid && number.touched"  class="error">Phone Number Field is Not Valid</span></mat-hint>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Phone Number</mat-label>
-                <input type="number" required
-                [(ngModel)]="user.mobileNumber" name="mobileNumber"
-                matInput placeholder="Enter Here">
-              </mat-form-field>
+                <input #number="ngModel" type="number" required
+                [(ngModel)]="user.mobileNumber" name="mobileNumber" pattern="^[0-9]{10}$"
+                matInput placeholder="Enter Here" maxlength="10" minlength="10" >
+              </mat-form-field> 
 
+              <mat-hint> <span *ngIf="adar.invalid && adar.touched"  class="error">Aadhar Number Field is Not Valid</span></mat-hint>
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Aadhar Card Number</mat-label>
-                <input type="number" required
+                <input type="number" required #adar="ngModel" pattern="^[0-9]{12}$"
                 [(ngModel)]="user.aadharCardNo" name="aadharCardNo"
-                matInput placeholder="Enter Here">
+                matInput placeholder="Enter Here"  minlength="12" maxlength="12">
               </mat-form-field>
+
+              <mat-hint> <span *ngIf="password.touched"  class="error">Password Field is Not Valid</span></mat-hint>
 
               <mat-form-field class="full-width" appearance="outline">
                 <mat-label>Password</mat-label>
-                <input type="password" required
+                <input #password="ngModel" type="password" required
                 [(ngModel)]="user.password" name="password"
                 matInput placeholder="Enter Here">
               </mat-form-field>

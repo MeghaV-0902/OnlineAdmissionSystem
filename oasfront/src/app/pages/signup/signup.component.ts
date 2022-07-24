@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class SignupComponent implements OnInit {
   constructor(private userService: UserService, private snack: MatSnackBar) {}
-
+ 
   public user = {
     firstName: '',
     middleName: '',
@@ -77,7 +77,7 @@ export class SignupComponent implements OnInit {
         //success
         console.log(data);
         //alert('success');
-        Swal.fire('Successfully done !!', 'User id is ' + data.id, 'success');
+        Swal.fire('Successfully done !!', 'User id is ' + data.userId, 'success');
       },
       (error) => {
         //error

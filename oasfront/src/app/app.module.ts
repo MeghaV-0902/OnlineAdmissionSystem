@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +29,28 @@ import { StudentGuard } from './services/student.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
+import { UserWelcomeComponent } from './pages/user/user-welcome/user-welcome.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { ViewStudentsComponent } from './pages/admin/view-students/view-students.component';
+import { UniversityListComponent } from './pages/university/university-list/university-list.component';
+import { UniversityAddComponent } from './pages/university/university-add/university-add.component';
+import { CollegeAddComponent } from './pages/college/college-add/college-add.component';
+import { CollegeListComponent } from './pages/college/college-list/college-list.component';
+import { UniversityUpdateComponent } from './pages/university/university-update/university-update.component';
+import { ApplicationAddComponent } from './pages/application/application-add/application-add.component';
+import { ApplicationListComponent } from './pages/application/application-list/application-list.component';
+// import { CollegeCourseComponent } from './pages/college/college-course/college-course.component';
+import { UniversityCourseComponent } from './pages/university/university-course/university-course.component';
+import { CollegeCourseComponent } from './pages/college-course/college-course.component';
+import { UpdateStudentComponent } from './update-student/update-student.component';
+import { CollegeUpdateComponent } from './pages/college/college-update/college-update.component';
+import { CollegeCourseListComponent } from './pages/college-course-list/college-course-list.component';
+import { UniversityCourseListComponent } from './pages/university/university-course-list/university-course-list.component';
+import { ViewApplicationComponent } from './pages/application/view-application/view-application.component';
+
+
+
 
 
 
@@ -36,9 +58,9 @@ import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
 @NgModule({
 
   declarations: [
-    AppComponent, NavbarComponent, FooterComponent, SignupComponent, LoginComponent, HomeComponent, DashboardComponent, UserDashboardComponent, ProfileComponent, SidebarComponent, WelcomeComponent],
+    AppComponent,CollegeCourseComponent, NavbarComponent, FooterComponent, SignupComponent, LoginComponent, HomeComponent, DashboardComponent, UserDashboardComponent, ProfileComponent, SidebarComponent, WelcomeComponent, UserSidebarComponent, UserWelcomeComponent, UpdateUserComponent, ViewStudentsComponent,UpdateStudentComponent, UniversityListComponent, UniversityAddComponent, CollegeAddComponent, CollegeListComponent, UniversityUpdateComponent, ApplicationAddComponent, ApplicationListComponent, UniversityCourseComponent, CollegeUpdateComponent, CollegeCourseListComponent, UniversityCourseListComponent, ViewApplicationComponent, ],
   imports: [
-    BrowserModule,MatListModule,FormsModule,BrowserAnimationsModule,RouterModule,AppRoutingModule,MatInputModule,MatFormFieldModule,MatButtonModule,HttpClientModule,MatSnackBarModule,MatCardModule,MatToolbarModule,MatIconModule ],
+    BrowserModule,ReactiveFormsModule,MatListModule,FormsModule,BrowserAnimationsModule,RouterModule,AppRoutingModule,MatInputModule,MatFormFieldModule,MatButtonModule,HttpClientModule,MatSnackBarModule,MatCardModule,MatToolbarModule,MatIconModule ],
   providers: [AdminGuard,StudentGuard,authInterceptorProviders],
   bootstrap: [ AppComponent ]
 })

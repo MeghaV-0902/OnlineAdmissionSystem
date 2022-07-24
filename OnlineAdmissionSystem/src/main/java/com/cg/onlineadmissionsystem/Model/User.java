@@ -1,26 +1,43 @@
 package com.cg.onlineadmissionsystem.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
+@AllArgsConstructor
+@Builder
 @Entity
-@Table(name="users")
+@Table(name="users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class User implements UserDetails
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
+    @NotNull(message = "Name cannot be null")
+    @Column(nullable = false)
     private String firstName;
     private String middleName;
+    @Column(nullable = false)
     private String lastName;
+    @Email(message = "Email should be valid")
     private String email;
+    @Column(length = 10, nullable = false)
+    @Size(min = 10, max = 10)
     private String mobileNumber;
+    @Column(length = 12, nullable = false)
+    @Size(min = 12, max = 12)
     private String aadharCardNo;
     private String password;
     private boolean enabled = true;
@@ -28,7 +45,6 @@ public class User implements UserDetails
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
     @JsonIgnore
     private Set<UserRoles> userRoles = new HashSet<>();
-
     public Set<UserRoles> getUserRoles() {
         return userRoles;
     }
@@ -161,5 +177,19 @@ public class User implements UserDetails
         return enabled;
     }
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
+                ", aadharCardNo='" + aadharCardNo + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                ", userRoles=" + userRoles +
+                '}';
+    }
 }

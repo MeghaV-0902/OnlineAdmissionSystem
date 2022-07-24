@@ -1,0 +1,18 @@
+ 
+<form name="universitycourseform" (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+      <label >Course Name</label>
+      <input type="text" class="form-control" id="Name"  placeholder="Enter Course Name"
+      [(ngModel)]="universitycourse.universityCourseName" name="universityCourseName">
+      
+    </div>
+ 
+    <div class="form-group">
+        <label >Course Duration</label>
+        <input type="text" class="form-control" id="CourseDuration"  placeholder="Enter Course Duration"
+        [(ngModel)]="universitycourse.universityCourseDuration" name="universityCourseDuration">
+    </div>
+    
+ 
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>

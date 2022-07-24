@@ -1,0 +1,30 @@
+<h3>College University</h3>
+<form (ngSubmit)="onSubmit()" > 
+    <div class="form-group">
+      <label >College Name</label><br>
+      <mat-hint> <span *ngIf="name.invalid && name.touched"  class="error">Name Field is Not Valid</span></mat-hint>
+      <input #name="ngModel" type="text" class="form-control" id="Name"  placeholder="Enter College Name"
+      [(ngModel)]="getCollege.name" name="name" ngModel required>
+      
+    </div>
+    <div class="form-group">
+        <label >College Email</label><br>
+        <mat-hint> <span *ngIf="email.invalid && email.touched"  class="error">Email Field is Not Valid</span></mat-hint>
+        <input #email="ngModel" type="text" class="form-control" id="Email"  placeholder="Enter College Email"
+        [(ngModel)]="getCollege.email" name="email" ngModel required>
+    </div> 
+    <div class="form-group">
+        <label >College Location</label><br>
+        <mat-hint> <span *ngIf="location.invalid && location.touched"  class="error">Location Field is Not Valid</span></mat-hint>
+        <input #location="ngModel" type="text" class="form-control" id="Location"  placeholder="Enter College Location"
+        [(ngModel)]="getCollege.location" name="location" ngModel required>
+    </div>
+    <div class="form-group">
+        <label >College Phone</label><br>
+        <mat-hint> <span *ngIf="phone.invalid && phone.touched"  class="error">Phone Field is Not Valid</span></mat-hint>
+        <input #phone="ngModel" type="text" class="form-control" id="Phone"  placeholder="Enter College Phone"
+        [(ngModel)]="getCollege.phone" name="phone" ngModel required pattern="^[0-9]{10}$">
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>

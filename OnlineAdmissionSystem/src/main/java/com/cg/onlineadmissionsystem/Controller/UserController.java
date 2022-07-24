@@ -11,8 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @RestController
@@ -22,6 +23,9 @@ public class UserController
 {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -48,6 +52,18 @@ public class UserController
         return this.userService.createuser(user,roles);
     }
 
+    @GetMapping("/")
+    public List<User> getAllStudents()
+    {
+        return userService.getAllStudents();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<User> getUser(@PathVariable("id") Integer id)
+    {
+        return this.userService.getUser(id);
+    }
+
     @GetMapping("/{email}")
     public User getUser(@PathVariable("email") String email)
     {
@@ -61,22 +77,22 @@ public class UserController
         this.userService.deleteUser(id);
     }
 
-    @PutMapping("/{email}")
-    public User updateUser(@PathVariable("email")String email,@RequestBody User user) throws Exception {
-        Set<UserRoles> roles = new HashSet<>();
-        Role role = new Role();
-        role.setRoleId(2);
-        role.setRoleName("STUDENT");
-        UserRoles userRole = new UserRoles();
-        userRole.setUser(user);
-        userRole.setRole(role);
-        roles.add(userRole);
-        return this.userService.updateUser(user,email,roles);
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Integer id,@RequestBody User userDetails)
+    {
+          //System.out.println(userDetails);
+          User user = this.userService.updateUser(userDetails,id);
+          return ResponseEntity.ok(user);
+
     }
 
     @ExceptionHandler(UserFoundException.class)
     public ResponseEntity<?> exceptionHandler(UserFoundException ex) {
         return ResponseEntity.ok(ex.getMessage());
     }
+
+
+
 
 }
