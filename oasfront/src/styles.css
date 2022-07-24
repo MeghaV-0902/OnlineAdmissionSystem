@@ -7,6 +7,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .text-center{
   text-align:center;
 }
+.mr{
+margin-right: 500;
+}
 
 .ml20{
   margin-left: 20px !important;
