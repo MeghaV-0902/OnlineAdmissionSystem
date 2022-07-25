@@ -9,23 +9,23 @@ import baseUrl from './helper';
 })
 export class ApplicationServiceService {
 
-  private apiServerUrl=baseUrl;
+  private apiServerUrl = baseUrl;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  public getApplications(): Observable<Application[]>{
+  public getApplications(): Observable<Application[]> {
     return this.http.get<Application[]>(`${this.apiServerUrl}/application/all`)
   }
 
-  public getApplicationsById(id:number): Observable<Application>{
+  public getApplicationsById(id: number): Observable<Application> {
     return this.http.get<Application>(`${this.apiServerUrl}/application/find/${id}`)
   }
 
-  public addApplication(application:Application): Observable<Application>{
-    return this.http.post<Application>(`${this.apiServerUrl}/application/add`,application)
+  public addApplication(application: Application): Observable<Application> {
+    return this.http.post<Application>(`${this.apiServerUrl}/application/add`, application)
   }
 
-  public updateApplication(application:Application): Observable<Application>{
-    return this.http.put<Application>(`${this.apiServerUrl}/application/update`,application)
+  public updateApplication(application: Application): Observable<Application> {
+    return this.http.put<Application>(`${this.apiServerUrl}/application/update`, application)
   }
 } 

@@ -11,12 +11,12 @@ import { UserService } from '../services/user.service';
   templateUrl: './update-student.component.html',
   styleUrls: ['./update-student.component.css']
 })
-export class UpdateStudentComponent implements OnInit { 
+export class UpdateStudentComponent implements OnInit {
 
   id: number;
   public getuser: Person
   public user = {
-    userId:0,
+    userId: 0,
     firstName: '',
     middleName: '',
     lastName: '',
@@ -24,42 +24,40 @@ export class UpdateStudentComponent implements OnInit {
     mobileNumber: '',
     aadharCardNo: '',
   };
-  constructor(private userService: UserService, private snack: MatSnackBar, private activeRoute: ActivatedRoute, private router: Router,private login: LoginService) { }
+  constructor(private userService: UserService, private snack: MatSnackBar, private activeRoute: ActivatedRoute, private router: Router, private login: LoginService) { }
 
   ngOnInit(): void {
-    this.id=this.activeRoute.snapshot.params['id'];
-    this.user.userId=this.activeRoute.snapshot.params['id'];
+    this.id = this.activeRoute.snapshot.params['id'];
+    this.user.userId = this.activeRoute.snapshot.params['id'];
     this.getUserByID();
     //this.user.firstName=this.getuser.firstName;
-    }
+  }
 
-  getUserByID()
-  {
+  getUserByID() {
     this.userService.getUserById(this.id).subscribe(
-      (data:any)=>{
-        this.getuser=data;
-        this.user.firstName=data.firstName
-        this.user.middleName=data.middleName
-        this.user.lastName=data.lastName
-        this.user.email=data.email
-        this.user.mobileNumber=data.mobileNumber
-        this.user.aadharCardNo=data.aadharCardNo
-        console.log("user "+this.user)
+      (data: any) => {
+        this.getuser = data;
+        this.user.firstName = data.firstName
+        this.user.middleName = data.middleName
+        this.user.lastName = data.lastName
+        this.user.email = data.email
+        this.user.mobileNumber = data.mobileNumber
+        this.user.aadharCardNo = data.aadharCardNo
+        console.log("user " + this.user)
         console.log(data)
         console.log(this.getuser)
       }
     );
   }
 
-  formSubmit1()
-  {
-    this.userService.updateUser(this.user.userId,this.user).subscribe(
+  formSubmit1() {
+    this.userService.updateUser(this.user.userId, this.user).subscribe(
       (data: any) => {
         //success
         console.log(data);
         this.goToProfilePage();
         //alert('success updated');
-        Swal.fire('Successfully updated !!', 'User id : ' + data.userId+" is updated.", 'success');
+        Swal.fire('Successfully updated !!', 'User id : ' + data.userId + " is updated.", 'success');
       },
       (error) => {
         //error
@@ -72,10 +70,9 @@ export class UpdateStudentComponent implements OnInit {
     );
   }
 
-  goToProfilePage()
-  {
-     this.router.navigate(['/admin/view-students'])
+  goToProfilePage() {
+    this.router.navigate(['/admin/view-students'])
 
-  } 
+  }
 
 }

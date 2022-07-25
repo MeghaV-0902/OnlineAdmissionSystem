@@ -1,30 +1,29 @@
-
 <br>
 <table class="table table-striped">
     <thead>
-<tr>
-    <th>UniversityID</th>
-    <th>UniversityName</th>
-    <th>UniversityEmail</th>
-    <th>UniversityLocation</th>
-    <th>UniversityPhone</th>
-    <!-- <th>UniversityImage</th> -->
-    <!-- <th>UniversityCode</th> -->
-    <th>Actions</th>
- </tr>  
+        <tr>
+            <th>UniversityID</th>
+            <th>UniversityName</th>
+            <th>UniversityEmail</th>
+            <th>UniversityLocation</th>
+            <th>UniversityPhone</th>
+            <!-- <th>UniversityImage</th> -->
+            <!-- <th>UniversityCode</th> -->
+            <th>Actions</th>
+        </tr>
     </thead>
     <tbody>
         <!-- interpolationoperator {{}} gives value -->
-<tr *ngFor="let u of universities">
-<td> {{u.id}}</td>
-<td> {{u.name}}</td>
-<td> {{u.email}}</td>
-<td> {{u.location}}</td>
-<td> {{u.phone}}</td>
-<!-- <td> {{u.imageUrl}}</td> -->
-<!-- <td> {{u.UniversityCode}}</td> -->
-<td><button (click)="updateUniversity(u.id)" class="btn btn-warning">Edit</button>&nbsp;&nbsp;<button (click)="deleteUniversity(u.id)" class="btn btn-danger">Delete</button></td>
-</tr>
+        <tr *ngFor="let u of universities">
+            <td> {{u.id}}</td>
+            <td> {{u.name}}</td>
+            <td> {{u.email}}</td>
+            <td> {{u.location}}</td>
+            <td> {{u.phone}}</td>
+            <!-- <td> {{u.imageUrl}}</td> -->
+            <!-- <td> {{u.UniversityCode}}</td> -->
+            <td><button (click)="updateUniversity(u.id)" class="btn btn-warning">Edit</button>&nbsp;&nbsp;<button
+                    (click)="deleteUniversity(u.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
     </tbody>
 </table>
- 

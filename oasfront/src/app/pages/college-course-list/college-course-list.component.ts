@@ -11,31 +11,29 @@ import { CollegeCourse } from '../college-course/college-course';
 })
 export class CollegeCourseListComponent implements OnInit {
   collegeCourse: CollegeCourse[]
-  cid=0;
+  cid = 0;
 
-  constructor(private collegeCourseService:CollegeCourseService,private router: Router) { } 
+  constructor(private collegeCourseService: CollegeCourseService, private router: Router) { }
 
   ngOnInit(): void {
     this.getCollegeCourses();
   }
 
-  getCollegeCourses()
-  {
-    this.collegeCourseService.getCollegeCourses().subscribe(data =>{
-      this.collegeCourse=data;
+  getCollegeCourses() {
+    this.collegeCourseService.getCollegeCourses().subscribe(data => {
+      this.collegeCourse = data;
     })
-  } 
+  }
 
-  deleteCollegeCourse(id:number)
-  {  
+  deleteCollegeCourse(id: number) {
     this.collegeCourseService.deleteCollegeCourse(id).subscribe(
-      (data)=>{
+      (data) => {
         Swal.fire('Successfully deleted !!', 'Course id : ' + id, 'success');
-        setTimeout(function(){
+        setTimeout(function () {
           window.location.reload();
-       }, 2000);
+        }, 2000);
       }
-    
+
     )
   }
 

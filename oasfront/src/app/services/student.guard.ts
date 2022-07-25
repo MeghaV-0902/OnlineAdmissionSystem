@@ -7,20 +7,19 @@ import { LoginService } from './login.service';
   providedIn: 'root'
 })
 export class StudentGuard implements CanActivate {
-  constructor(private login: LoginService, private router: Router){
+  constructor(private login: LoginService, private router: Router) {
 
   }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    
-    if(this.login.isLoggedIn() && this.login.getUserRole()=="STUDENT")
-    {
+
+    if (this.login.isLoggedIn() && this.login.getUserRole() == "STUDENT") {
       return true;
     }
 
-      this.router.navigate(['login']);
-      return false;
+    this.router.navigate(['login']);
+    return false;
   }
-  
+
 }

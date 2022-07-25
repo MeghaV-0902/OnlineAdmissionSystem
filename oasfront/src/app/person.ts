@@ -1,9 +1,9 @@
 export class Person {
-    userId:number;
+    userId: number;
     firstName: string;
     middleName: string;
     lastName: string;
     email: string;
-    mobileNumber:string;
-    aadharCardNo:string;
+    mobileNumber: string;
+    aadharCardNo: string;
 }

@@ -1,43 +1,37 @@
-<div class="bootstrap-wrapper" >
+<div class="bootstrap-wrapper">
   <div class="container">
-    <div class = "row mt20">
-        <div class="col-md-6 offset-md-3">
+    <div class="row mt20">
+      <div class="col-md-6 offset-md-3">
 
-          <h1 class="text-center">Login Here</h1>
+        <h1 class="text-center">Login Here</h1>
 
         <mat-card>
           <!-- {{loginData | json}} -->
           <form (ngSubmit)="formSubmit()">
 
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Email Address</mat-label>
-            <input
-            [(ngModel)]="loginData.email"
-            name="email"
-             type="email" required
-            matInput placeholder="Enter Here">
-            <mat-hint>Enter Valid Email Id</mat-hint>
-          </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Email Address</mat-label>
+              <input [(ngModel)]="loginData.email" name="email" type="email" required matInput placeholder="Enter Here">
+              <mat-hint>Enter Valid Email Id</mat-hint>
+            </mat-form-field>
 
-          <mat-form-field class="full-width" appearance="outline">
-            <mat-label>Password</mat-label>
-            <input
-            [(ngModel)]="loginData.password"
-            name="password"
-            type="password" required
-            matInput placeholder="Enter Here">
-          </mat-form-field>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input [(ngModel)]="loginData.password" name="password" type="password" required matInput
+                placeholder="Enter Here">
+            </mat-form-field>
 
-          <div class="container text-center">
-            <button type="submit" mat-raised-button color="primary">Login</button>
-            <button style="margin-left:20px;" mat-raised-button color="accent" type="reset" ng-click="reset()">Reset</button>
-          </div>
+            <div class="container text-center">
+              <button type="submit" mat-raised-button color="primary">Login</button>
+              <button style="margin-left:20px;" mat-raised-button color="accent" type="reset"
+                ng-click="reset()">Reset</button>
+            </div>
 
           </form>
 
         </mat-card>
 
-        </div>
+      </div>
     </div>
   </div>
 </div>

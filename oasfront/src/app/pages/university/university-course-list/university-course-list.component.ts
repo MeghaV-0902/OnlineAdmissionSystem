@@ -11,30 +11,28 @@ import { UniversityCourseServiceService } from '../../university-course-service.
 })
 export class UniversityCourseListComponent implements OnInit {
   universityCourse: UniversityCourse[]
-  cid=0;
+  cid = 0;
 
-  constructor(private universityCourseService:UniversityCourseServiceService,private router: Router) { }
+  constructor(private universityCourseService: UniversityCourseServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.getCollegeCourses();
-  } 
-  getCollegeCourses()
-  {
-    this.universityCourseService.getUniversityCourses().subscribe(data =>{
-      this.universityCourse=data;
+  }
+  getCollegeCourses() {
+    this.universityCourseService.getUniversityCourses().subscribe(data => {
+      this.universityCourse = data;
     })
-  } 
+  }
 
-  deleteUniversityCourse(id:number)
-  {  
+  deleteUniversityCourse(id: number) {
     this.universityCourseService.deleteUniversityCourse(id).subscribe(
-      (data)=>{
+      (data) => {
         Swal.fire('Successfully deleted !!', 'Course id : ' + id, 'success');
-        setTimeout(function(){
+        setTimeout(function () {
           window.location.reload();
-       }, 2000);
+        }, 2000);
       }
-    
+
     )
   }
 

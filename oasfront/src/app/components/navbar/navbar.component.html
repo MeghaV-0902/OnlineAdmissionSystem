@@ -1,46 +1,36 @@
 <mat-toolbar color="primary">
 
-  <a
-  routerLink="/"
-   mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <a routerLink="/" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </a>
   <span>Online Admission Portal</span>
   <span class="example-spacer"></span>
 
-  <a
-  *ngIf="!isLoggedIn"  [routerLink]="'/login'"  mat-icon-button class="example-icon favorite-icon mr20 ml20" aria-label="Example icon-button with heart icon">
-  Login
+  <a *ngIf="!isLoggedIn" [routerLink]="'/login'" mat-icon-button class="example-icon favorite-icon mr20 ml20"
+    aria-label="Example icon-button with heart icon">
+    Login
   </a>
 
-  <a
-  *ngIf="!isLoggedIn"
-  [routerLink]="'/signup'"
-  mat-icon-button class="example-icon favorite-icon mr20 ml20" aria-label="Example icon-button with heart icon">
-  Register
+  <a *ngIf="!isLoggedIn" [routerLink]="'/signup'" mat-icon-button class="example-icon favorite-icon mr20 ml20"
+    aria-label="Example icon-button with heart icon">
+    Register
   </a>
 
 
-  <a  (click)="logout()"  *ngIf="isLoggedIn" mat-icon-button class="example-icon favorite-icon mr20 ml20" aria-label="Example icon-button with heart icon">
-  Logout
-  </a> 
+  <a (click)="logout()" *ngIf="isLoggedIn" mat-icon-button class="example-icon favorite-icon mr20 ml20"
+    aria-label="Example icon-button with heart icon">
+    Logout
+  </a>
 
-  <button
-  *ngIf="isLoggedIn && user && user.authorities[0].authority=='ADMIN'"
-  mat-button 
-  routerLink="/admin/profile"
-  class="example-icon favorite-icon  ml20" 
-  aria-label="Example icon-button with heart icon">
-  {{user.email}}
+  <button *ngIf="isLoggedIn && user && user.authorities[0].authority=='ADMIN'" mat-button routerLink="/admin/profile"
+    class="example-icon favorite-icon  ml20" aria-label="Example icon-button with heart icon">
+    {{user.email}}
   </button>
 
-  <button
-  *ngIf="isLoggedIn && user && user.authorities[0].authority=='STUDENT'"
-  mat-button 
-  routerLink="/user-dashboard/profile"
-  class="example-icon favorite-icon  ml20" 
-  aria-label="Example icon-button with heart icon">
-  {{user.email}}
+  <button *ngIf="isLoggedIn && user && user.authorities[0].authority=='STUDENT'" mat-button
+    routerLink="/user-dashboard/profile" class="example-icon favorite-icon  ml20"
+    aria-label="Example icon-button with heart icon">
+    {{user.email}}
   </button>
 
 

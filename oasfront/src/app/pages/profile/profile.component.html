@@ -6,12 +6,13 @@
             <div class="container">
 
                 <div class="container text-center">
-                    <img src="https://jacksonvillepartycompany.com/wp-content/uploads/2018/10/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" alt="profile picture" class="profile-image">
-                <h1 class="mt20">{{user.firstName}} {{user.lastName}} </h1>
+                    <img src="https://jacksonvillepartycompany.com/wp-content/uploads/2018/10/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg"
+                        alt="profile picture" class="profile-image">
+                    <h1 class="mt20">{{user.firstName}} {{user.lastName}} </h1>
                 </div>
 
-                <div class="row"> 
-                    
+                <div class="row">
+
                     <div class="col-md-10 offset-md-1">
                         <!-- //table details -->
                         <table class="table1 text-center">
@@ -48,16 +49,14 @@
                 </div>
             </div>
         </div>
-        
+
     </mat-card-content>
     <mat-card-actions class="text-center">
-        <button
-        *ngIf="user && user.authorities[0].authority=='ADMIN'"
-        (click)="updateUser(user.userId)" mat-raised-button color="primary">Update</button>
+        <button *ngIf="user && user.authorities[0].authority=='ADMIN'" (click)="updateUser(user.userId)"
+            mat-raised-button color="primary">Update</button>
 
-        <button
-        *ngIf="user && user.authorities[0].authority=='STUDENT'"
-        (click)="updateStudent(user.userId)" mat-raised-button color="primary">Update</button>
-    
+        <button *ngIf="user && user.authorities[0].authority=='STUDENT'" (click)="updateStudent(user.userId)"
+            mat-raised-button color="primary">Update</button>
+
     </mat-card-actions>
 </mat-card>

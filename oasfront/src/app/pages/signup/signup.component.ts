@@ -9,8 +9,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-  constructor(private userService: UserService, private snack: MatSnackBar) {}
- 
+  constructor(private userService: UserService, private snack: MatSnackBar) { }
+
   public user = {
     firstName: '',
     middleName: '',
@@ -21,51 +21,51 @@ export class SignupComponent implements OnInit {
     password: '',
   };
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  formSubmit(){
+  formSubmit() {
     // alert('Submit');
 
     console.log(this.user);
-    if(this.user.firstName == '' || this.user.firstName == null){
+    if (this.user.firstName == '' || this.user.firstName == null) {
       // alert("Firstname is Required!");
-      this.snack.open("Firstname is Required!",'',{
-        duration:3000,
+      this.snack.open("Firstname is Required!", '', {
+        duration: 3000,
       });
       return;
     }
-    if(this.user.middleName == '' || this.user.middleName == null){
+    if (this.user.middleName == '' || this.user.middleName == null) {
       // alert("middleName is Required!");
-      this.snack.open("Middle Name is Required!",'',{
-        duration:3000,
+      this.snack.open("Middle Name is Required!", '', {
+        duration: 3000,
       });
       return;
     }
-    if(this.user.lastName == '' || this.user.lastName == null){
+    if (this.user.lastName == '' || this.user.lastName == null) {
       // alert("lastName is Required!");
-      this.snack.open("Last Name is Required!",'',{
-        duration:3000,
+      this.snack.open("Last Name is Required!", '', {
+        duration: 3000,
       });
       return;
     }
-    if(this.user.email == '' || this.user.email == null){
+    if (this.user.email == '' || this.user.email == null) {
       // alert("email is Required!");
-      this.snack.open("Email Name is Required!",'',{
-        duration:3000,
+      this.snack.open("Email Name is Required!", '', {
+        duration: 3000,
       });
       return;
     }
-    if(this.user.mobileNumber == '' || this.user.mobileNumber == null){
+    if (this.user.mobileNumber == '' || this.user.mobileNumber == null) {
       // alert("mobileNumber is Required!");
-      this.snack.open("Mobile Number is Required!",'',{
-        duration:3000,
+      this.snack.open("Mobile Number is Required!", '', {
+        duration: 3000,
       });
       return;
     }
-    if(this.user.aadharCardNo == '' || this.user.aadharCardNo == null){
+    if (this.user.aadharCardNo == '' || this.user.aadharCardNo == null) {
       // alert("aadharCardNo is Required!");
-      this.snack.open("Aadhar Card Number is Required!",'',{
-        duration:3000,
+      this.snack.open("Aadhar Card Number is Required!", '', {
+        duration: 3000,
       });
       return;
     }

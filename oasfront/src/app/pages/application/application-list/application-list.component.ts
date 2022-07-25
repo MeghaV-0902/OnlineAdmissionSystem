@@ -12,94 +12,83 @@ import { Application } from '../application';
   styleUrls: ['./application-list.component.css']
 })
 export class ApplicationListComponent implements OnInit {
-  application:Application[];
+  application: Application[];
 
 
-   app:Application= new Application();
-   app2:Application;
+  app: Application = new Application();
+  app2: Application;
 
-  constructor(private applicationService:ApplicationServiceService, private router:Router) { }
+  constructor(private applicationService: ApplicationServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.getApplications();
-    
+
   }
 
   private getApplications() {
-    this.applicationService.getApplications().subscribe(data =>{
-      this.application=data;
+    this.applicationService.getApplications().subscribe(data => {
+      this.application = data;
       console.log(this.application);
     })
   }
-  acceptApplication(id:number)
-  {
+  acceptApplication(id: number) {
     this.getApplicationAccept(id)
     console.log(this.app)
   }
 
-  getApplicationAccept(id:number):void
-  {
+  getApplicationAccept(id: number): void {
     this.applicationService.getApplicationsById(id).subscribe(
-      data=>
-      {
+      data => {
         console.log(data)
-        this.app=data;
+        this.app = data;
         this.updateAccept()
       }
     )
   }
-  getApplicationReject(id:number):void
-  {
+  getApplicationReject(id: number): void {
     this.applicationService.getApplicationsById(id).subscribe(
-      data=>
-      {
+      data => {
         console.log(data)
-        this.app=data;
+        this.app = data;
         this.updateReject()
       }
     )
   }
-  updateAccept()
-  {
-    this.app.status="ACCEPTED";
+  updateAccept() {
+    this.app.status = "ACCEPTED";
     console.log(this.app);
     this.applicationService.updateApplication(this.app).subscribe(
-      (data:any)=>
-      {
+      (data: any) => {
         console.log("success")
         this.goToApplicationPage();
         Swal.fire('Accepted', 'Applicantion id : ' + data.id, 'success');
-        setTimeout(function(){
+        setTimeout(function () {
           window.location.reload();
-       }, 500);
+        }, 500);
       }
     )
- 
+
   }
-  rejectApplication(id:number)
-  {
+  rejectApplication(id: number) {
     this.getApplicationReject(id)
   }
 
-  updateReject()
-  {
-    this.app.status="REJECTED";
+  updateReject() {
+    this.app.status = "REJECTED";
     console.log(this.app);
     this.applicationService.updateApplication(this.app).subscribe(
-      (data:any)=>
-      {
+      (data: any) => {
         console.log("REJECT")
         this.goToApplicationPage();
         Swal.fire('REJECTED', 'Applicantion id : ' + data.id, 'success');
-        setTimeout(function(){
+        setTimeout(function () {
           window.location.reload();
-       }, 500);
+        }, 500);
       }
     )
 
   }
-  goToApplicationPage()
-  {
+  goToApplicationPage() {
     this.router.navigate(['admin/application-list'])
   }
 

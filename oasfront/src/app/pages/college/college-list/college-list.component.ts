@@ -11,40 +11,38 @@ import { CollegeAddComponent } from '../college-add/college-add.component';
   styleUrls: ['./college-list.component.css']
 })
 export class CollegeListComponent implements OnInit {
-  colleges:College[];
-  abc:CollegeAddComponent["selectedUniversity"];
+  colleges: College[];
+  abc: CollegeAddComponent["selectedUniversity"];
 
 
-  constructor(private collegeService:CollegeService, private router: Router) { }
+  constructor(private collegeService: CollegeService, private router: Router) { }
 
   ngOnInit(): void {
     this.getColleges();
   }
-  
+
   private getColleges() {
     console.log(this.abc)
-    this.collegeService.getColleges().subscribe(data =>{
-      this.colleges=data;
+    this.collegeService.getColleges().subscribe(data => {
+      this.colleges = data;
     })
   }
 
-  updateCollege(id:number)
-  {
+  updateCollege(id: number) {
     console.log('inside updateuniversity')
-    this.router.navigate(['admin/college-update',id]);
+    this.router.navigate(['admin/college-update', id]);
   }
 
 
-  deleteCollege(id:number)
-  { 
+  deleteCollege(id: number) {
     this.collegeService.deleteCollege(id).subscribe(
-      (data)=>{
+      (data) => {
         Swal.fire('Successfully deleted !!', 'College id : ' + id, 'success');
-        setTimeout(function(){
+        setTimeout(function () {
           window.location.reload();
-       }, 1000);
+        }, 1000);
       }
-    
+
     )
   }
 

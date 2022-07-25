@@ -5,28 +5,24 @@ import { CollegeCourse } from '../pages/college-course/college-course';
 
 import baseUrl from './helper';
 
-@Injectable({  
-  providedIn: 'root' 
+@Injectable({
+  providedIn: 'root'
 })
 export class CollegeCourseService {
 
-  private apiServerUrl=baseUrl;
+  private apiServerUrl = baseUrl;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  // public addCollegeCourse(collegecourse:CourseAdd): Observable<CourseAdd>{
-  //   return this.http.post<CourseAdd>(`${this.apiServerUrl}/CollegeCourse/add`,collegecourse)
-  // }
-
-  public getCollegeCourses(): Observable<CollegeCourse[]>{
+  public getCollegeCourses(): Observable<CollegeCourse[]> {
     return this.http.get<CollegeCourse[]>(`${this.apiServerUrl}/CollegeCourse/all`)
   }
 
-  public addCollegeCourse(collegecourse:CollegeCourse): Observable<CollegeCourse>{
-    return this.http.post<CollegeCourse>(`${this.apiServerUrl}/CollegeCourse/add`,collegecourse)
+  public addCollegeCourse(collegecourse: CollegeCourse): Observable<CollegeCourse> {
+    return this.http.post<CollegeCourse>(`${this.apiServerUrl}/CollegeCourse/add`, collegecourse)
   }
 
-  public deleteCollegeCourse(id:number): Observable<CollegeCourse>{
+  public deleteCollegeCourse(id: number): Observable<CollegeCourse> {
     return this.http.delete<CollegeCourse>(`${baseUrl}/CollegeCourse/delete/${id}`)
   }
 } 

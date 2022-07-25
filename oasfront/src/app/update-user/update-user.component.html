@@ -1,82 +1,77 @@
 <div class="bootstrap-wrapper">
-    <div class="container">
-      <div class = "row mt20">
-          <div class="col-md-6 offset-md-3">
-  
-            <mat-card>
-            <h1 class="text-center">Update user</h1>
-                <!--  -->
-            <form (ngSubmit)="formSubmit()">
-  
-                <mat-form-field class="full-width" appearance="outline">
-                  <mat-label>First Name</mat-label><br>
-                  <mat-hint> <span *ngIf="name.invalid && name.touched"  class="error">Name Field is Not Valid</span></mat-hint>
-                  <input
-                  required #name="ngModel"
-                  [(ngModel)]="user.firstName" name="firstName" 
-                  matInput placeholder="Enter Here" ngModel /> 
-                  <mat-hint>FirstName must be unique</mat-hint>
-                </mat-form-field>
-  
-                <mat-form-field class="full-width" appearance="outline">
-                  <mat-label>Middle Name</mat-label>
-                  <input
-                  [(ngModel)]="user.middleName" name="middleName"
-                  matInput placeholder="Enter Here">
-                </mat-form-field>
-  
-                <mat-form-field class="full-width" appearance="outline">
-                  <mat-label>Last Name</mat-label><br>
-                  <mat-hint> <span *ngIf="ln.invalid && ln.touched"  class="error">Name Field is Not Valid</span></mat-hint>
+  <div class="container">
+    <div class="row mt20">
+      <div class="col-md-6 offset-md-3">
 
-                  <input #ln="ngModel"
-                  required
-                  [(ngModel)]="user.lastName" name="lastName"
-                  matInput placeholder="Enter Here" ngModel>
-                </mat-form-field>
-  
-                <mat-form-field class="full-width" appearance="outline">
-                  <mat-label>Email Address</mat-label><br>
-                  <mat-hint> <span *ngIf="email.invalid && email.touched"  class="error">email Field is Not Valid</span></mat-hint>
-                  <input #email="ngModel" type="email" required
-                  [(ngModel)]="user.email" name="email"
-                  matInput placeholder="Enter Here" ngModel>
-                </mat-form-field>
-  
-                <mat-form-field class="full-width" appearance="outline">
-                  <mat-label>Phone Number</mat-label><br>
-                  <mat-hint> <span *ngIf="Phone.invalid && Phone.touched"  class="error">Phone number Field is Not Valid</span></mat-hint>
-                  <input #Phone="ngModel" type="number" required
-                  [(ngModel)]="user.mobileNumber" name="mobileNumber"
-                  matInput placeholder="Enter Here" ngModel pattern="^[0-9]{10}$"  minlength="10" maxlength="10">
-                </mat-form-field>
-  
-                <mat-form-field class="full-width" appearance="outline">
-                  <mat-label>Aadhar Card Number</mat-label><br>
-                  <mat-hint> <span *ngIf="Aadhar.invalid && Aadhar.touched"  class="error">Aadhar Field is Not Valid</span></mat-hint>
-                  <input #Aadhar="ngModel"type="number" required
-                  [(ngModel)]="user.aadharCardNo" name="aadharCardNo"
-                  matInput placeholder="Enter Here" ngModel pattern="^[0-9]{12}$"  minlength="12" maxlength="12">
-                </mat-form-field>
-  
-                <!-- <mat-form-field class="full-width" appearance="outline">
+        <mat-card>
+          <h1 class="text-center">Update user</h1>
+          <!--  -->
+          <form (ngSubmit)="formSubmit()">
+
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>First Name</mat-label><br>
+              <mat-hint> <span *ngIf="name.invalid && name.touched" class="error">Name Field is Not Valid</span>
+              </mat-hint>
+              <input required #name="ngModel" [(ngModel)]="user.firstName" name="firstName" matInput
+                placeholder="Enter Here" ngModel />
+              <mat-hint>FirstName must be unique</mat-hint>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Middle Name</mat-label>
+              <input [(ngModel)]="user.middleName" name="middleName" matInput placeholder="Enter Here">
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Last Name</mat-label><br>
+              <mat-hint> <span *ngIf="ln.invalid && ln.touched" class="error">Name Field is Not Valid</span></mat-hint>
+
+              <input #ln="ngModel" required [(ngModel)]="user.lastName" name="lastName" matInput
+                placeholder="Enter Here" ngModel>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Email Address</mat-label><br>
+              <mat-hint> <span *ngIf="email.invalid && email.touched" class="error">email Field is Not Valid</span>
+              </mat-hint>
+              <input #email="ngModel" type="email" required [(ngModel)]="user.email" name="email" matInput
+                placeholder="Enter Here" ngModel>
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Phone Number</mat-label><br>
+              <mat-hint> <span *ngIf="Phone.invalid && Phone.touched" class="error">Phone number Field is Not
+                  Valid</span></mat-hint>
+              <input #Phone="ngModel" type="number" required [(ngModel)]="user.mobileNumber" name="mobileNumber"
+                matInput placeholder="Enter Here" ngModel pattern="^[0-9]{10}$" minlength="10" maxlength="10">
+            </mat-form-field>
+
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Aadhar Card Number</mat-label><br>
+              <mat-hint> <span *ngIf="Aadhar.invalid && Aadhar.touched" class="error">Aadhar Field is Not Valid</span>
+              </mat-hint>
+              <input #Aadhar="ngModel" type="number" required [(ngModel)]="user.aadharCardNo" name="aadharCardNo"
+                matInput placeholder="Enter Here" ngModel pattern="^[0-9]{12}$" minlength="12" maxlength="12">
+            </mat-form-field>
+
+            <!-- <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Password</mat-label>
                   <input type="password" required
                   [(ngModel)]="user.password" name="password"
                   matInput placeholder="Enter Here">
                 </mat-form-field> -->
-  
-                <div class="container text-center">
-                  <button type="submit" mat-raised-button color="primary">Update</button>
-                <button style="margin-left:20px;" mat-raised-button color="accent" type="reset" ng-click="reset()">Clear</button>
-                </div>
-  
-            </form>
-  
-          </mat-card>
-  
-          </div>
+
+            <div class="container text-center">
+              <button type="submit" mat-raised-button color="primary">Update</button>
+              <button style="margin-left:20px;" mat-raised-button color="accent" type="reset"
+                ng-click="reset()">Clear</button>
+            </div>
+
+          </form>
+
+        </mat-card>
+
       </div>
     </div>
   </div>
-  
+</div>

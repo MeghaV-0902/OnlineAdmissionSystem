@@ -11,27 +11,27 @@ import { University } from '../university';
 export class UniversityAddComponent implements OnInit {
 
 
-  university:University=new University();
+  university: University = new University();
 
-  constructor(private universityService:UniversityService,private router: Router) { }
-  
+  constructor(private universityService: UniversityService, private router: Router) { }
+
 
   ngOnInit(): void {
   }
-  
-  saveUniversity(){
-    this.universityService.addUniversity(this.university).subscribe(data=>{
+
+  saveUniversity() {
+    this.universityService.addUniversity(this.university).subscribe(data => {
       console.log(data);
       this.goToUniversities();
     },
-    error=>console.log(error));
+      error => console.log(error));
   }
 
-  goToUniversities(){
+  goToUniversities() {
     this.router.navigate(['admin/university-list'])
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.university);
     this.saveUniversity();
     alert("University Added Successfully.");
@@ -39,19 +39,19 @@ export class UniversityAddComponent implements OnInit {
 
   validateForm() {
     console.log('inside validateform function')
-    let x=document.forms["universityform"]["name"].value;
-    let y=document.forms["universityform"]["email"].value;
-    let z=document.forms["universityform"]["location"].value;
-    let v=document.forms["universityform"]["phone"].value;
-    if(x==''|| y==''|| z=='' || v==''){
+    let x = document.forms["universityform"]["name"].value;
+    let y = document.forms["universityform"]["email"].value;
+    let z = document.forms["universityform"]["location"].value;
+    let v = document.forms["universityform"]["phone"].value;
+    if (x == '' || y == '' || z == '' || v == '') {
       alert('Field cannot be empty');
       //return false;
     }
-    else{
-    this.saveUniversity();
-    alert("University Added Successfully.");
+    else {
+      this.saveUniversity();
+      alert("University Added Successfully.");
     }
-        
+
   }
 
 }

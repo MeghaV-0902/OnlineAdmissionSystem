@@ -1,4 +1,4 @@
-<meta charset = "UTF-8" />
+<meta charset="UTF-8" />
 <h1 align="center">Add College</h1>
 <hr>
 <!-- {{universities|json}} -->
@@ -11,36 +11,37 @@
     <a href="#">Link 3</a> 
   </div>
 </div> -->
-<form name="collegeform" (ngSubmit)="validateForm()" method="post" >
-    <div class="form-group">
-      <label >College Name</label><br>
-      <mat-hint> <span *ngIf="name.invalid && name.touched"  class="error">Name Field is Not Valid</span></mat-hint>
-      <input #name="ngModel" required type="text" class="form-control" id="Name"  placeholder="Enter College Name"
-      [(ngModel)]="college.name" name="name" onsubmit="required()" ngModel>
-    </div>
-    <div class="form-group">
-        <label >College Email</label><br>
-        <mat-hint> <span *ngIf="email.invalid && email.touched"  class="error">Email Field is Not Valid</span></mat-hint>
-        <input #email="ngModel" required type="text" class="form-control" id="Email"  placeholder="Enter College Email"
-        [(ngModel)]="college.email" name="email" ngModel/>
-    </div>
-  
+<form name="collegeform" (ngSubmit)="validateForm()" method="post">
   <div class="form-group">
-      <label >College Location</label><br>
-      <mat-hint> <span *ngIf="location.invalid && location.touched"  class="error">Location Field is Not Valid</span></mat-hint>
-      <input #location="ngModel"  required type="text" class="form-control" id="location"  placeholder="Enter College Location"
-      [(ngModel)]="college.location" name="location" ngModel/>
+    <label>College Name</label><br>
+    <mat-hint> <span *ngIf="name.invalid && name.touched" class="error">Name Field is Not Valid</span></mat-hint>
+    <input #name="ngModel" required type="text" class="form-control" id="Name" placeholder="Enter College Name"
+      [(ngModel)]="college.name" name="name" onsubmit="required()" ngModel>
+  </div>
+  <div class="form-group">
+    <label>College Email</label><br>
+    <mat-hint> <span *ngIf="email.invalid && email.touched" class="error">Email Field is Not Valid</span></mat-hint>
+    <input #email="ngModel" required type="text" class="form-control" id="Email" placeholder="Enter College Email"
+      [(ngModel)]="college.email" name="email" ngModel />
+  </div>
+
+  <div class="form-group">
+    <label>College Location</label><br>
+    <mat-hint> <span *ngIf="location.invalid && location.touched" class="error">Location Field is Not Valid</span>
+    </mat-hint>
+    <input #location="ngModel" required type="text" class="form-control" id="location"
+      placeholder="Enter College Location" [(ngModel)]="college.location" name="location" ngModel />
   </div>
 
 
   <div class="form-group">
-        <label >College Phone</label><br>
-        <mat-hint> <span *ngIf="phone.invalid && phone.touched"  class="error">Phone Field is Not Valid</span></mat-hint>
+    <label>College Phone</label><br>
+    <mat-hint> <span *ngIf="phone.invalid && phone.touched" class="error">Phone Field is Not Valid</span></mat-hint>
 
-        <input #phone="ngModel" required type="text" class="form-control" id="Phone"  placeholder="Enter College Phone"
-        [(ngModel)]="college.phone" name="phone" ngModel pattern="^[0-9]{10}$"/>
-        
-    </div>
+    <input #phone="ngModel" required type="text" class="form-control" id="Phone" placeholder="Enter College Phone"
+      [(ngModel)]="college.phone" name="phone" ngModel pattern="^[0-9]{10}$" />
 
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>

@@ -1,72 +1,75 @@
 <form name="applicationform" (ngSubmit)="validateForm()">
-    <div class="form-group">
-      <label >Name</label>
-      <br>
-      <mat-hint> <span *ngIf="name.invalid && name.touched"  class="error">Name Field is Not Valid</span></mat-hint>
-      <input #name="ngModel" type="text" class="form-control" [(ngModel)]="application.name"
-       id="Name"  placeholder="Enter Name" name="name" ngModel required>
-    </div>
-
-    <div>
-    <label >Email</label><br>
-    <mat-hint> <span *ngIf="email.invalid && email.touched"  class="error">Email Field is Not Valid</span></mat-hint>
-    <input #email="ngModel" type="email" class="form-control" [(ngModel)]="application.email"
-    id="Email"  placeholder="Enter Email" name="email" ngModel required>
-    </div>
+  <br>
+  <div class="form-group">
+    <label>Name</label>
+    <br>
+    <mat-hint> <span *ngIf="name.invalid && name.touched" class="error">Name Field is Not Valid</span></mat-hint>
+    <input #name="ngModel" type="text" class="form-control" [(ngModel)]="application.name" id="Name"
+      placeholder="Enter Name" name="name" ngModel required>
+  </div>
 
   <div>
-    <label >Phone</label><br>
-    <mat-hint> <span *ngIf="phone.invalid && phone.touched"  class="error">Phone Number Field is Not Valid</span></mat-hint>
+    <label>Email</label><br>
+    <mat-hint> <span *ngIf="email.invalid && email.touched" class="error">Email Field is Not Valid</span></mat-hint>
+    <input #email="ngModel" type="email" class="form-control" [(ngModel)]="application.email" id="Email"
+      placeholder="Enter Email" name="email" ngModel required>
+  </div>
+  <br>
+  <div>
+    <label>Phone</label><br>
+    <mat-hint> <span *ngIf="phone.invalid && phone.touched" class="error">Phone Number Field is Not Valid</span>
+    </mat-hint>
 
     <input #phone="ngModel" type="number" class="form-control" id="Phone" [(ngModel)]="application.phone"
-      placeholder="Enter Phone Number" name="phone" ngModel required pattern="^[0-9]{10}$"  minlength="10" maxlength="10">
+      placeholder="Enter Phone Number" name="phone" ngModel required pattern="^[0-9]{10}$" minlength="10"
+      maxlength="10">
+  </div>
+  <br>
+  <div>
+    <label>Applied To</label><br>
+    <div>
+      <input name="College" ng-control="options" type="radio" [value]="'College'" [(ngModel)]="application.appliedto"
+        value="College">College
+    </div>
+    <div>
+      <input name="University" ng-control="options" type="radio" [value]="'University'"
+        [(ngModel)]="application.appliedto" value="University">University
+    </div>
   </div>
   <div>
-    <label >Applied To</label><br>
-    <div>
-      College:<input name="College" class="form-control" ng-control="options" type="radio" [value]="'College'"  [(ngModel)]="application.appliedto" value="College">
+    <br>
+    <div *ngIf="application.appliedto=='College'">
+      Select Your College :
+      <select [(ngModel)]="selectedColleges" name="colleges" id="colleges">
+        <option default>Select</option>
+        <option *ngFor="let c of colleges" value="{{c.name}}">{{c.name}}</option>
+      </select>
     </div>
-    <div>
-      University : <input name="University" class="form-control" ng-control="options" type="radio" [value]="'University'" [(ngModel)]="application.appliedto" value="University" >
+    <div *ngIf="application.appliedto=='College'">
+      Select Your Course :
+      <select [(ngModel)]="selectedClgCourse" name="collegeCourse" id="collegeCourse">
+        <option default>Select</option>
+        <option *ngFor="let c of collegeCourse" value="{{c.collegeCourseName}}">{{c.collegeCourseName}}</option>
+      </select>
+    </div>
+
+    <div *ngIf="application.appliedto=='University'">
+      Select Your University :
+      <select [(ngModel)]="selectedUniversity" name="universities" id="universities">
+        <option default>Select</option>
+        <option *ngFor="let u of universities" value="{{u.name}}">{{u.name}}</option>
+      </select>
+    </div>
+    <div *ngIf="application.appliedto=='University'">
+      Select Your Course :
+      <select [(ngModel)]="selectedUniCourse" name="uniCourse" id="uniCourse">
+        <option default>Select</option>
+        <option *ngFor="let c of universityCourse" value="{{c.universityCourseName}}">{{c.universityCourseName}}
+        </option>
+      </select>
     </div>
   </div>
-<div>
-<br>
+  <br>
 
-<div *ngIf="application.appliedto=='College'">
-  <p>Select Your College {{selectedColleges}}</p>
-  <select  [(ngModel)]="selectedColleges" name="colleges" id="colleges">
-    <option default>Select</option>
-    <option *ngFor="let c of colleges" value="{{c.name}}">{{c.name}}</option>
-  </select>
-</div>
-<div *ngIf="application.appliedto=='College'">
-  <p>Select Your Course {{selectedClgCourse}}</p>
-  <select  [(ngModel)]="selectedClgCourse" name="collegeCourse" id="collegeCourse">
-    <option default>Select</option>
-    <option *ngFor="let c of collegeCourse" value="{{c.collegeCourseName}}">{{c.collegeCourseName}}</option>
-  </select>
-</div>
-
-<div  *ngIf="application.appliedto=='University'">
-  <p>Select Your University {{selectedUniversity}}</p>
-  <select [(ngModel)]="selectedUniversity" name="universities" id="universities">
-    <option default>Select</option>
-    <option *ngFor="let u of universities" value="{{u.name}}">{{u.name}}</option>
-  </select>
-</div>
-
-<div *ngIf="application.appliedto=='University'">
-  <p>Select Your Course {{selectedUniCourse}}</p>
-  <select  [(ngModel)]="selectedUniCourse" name="uniCourse" id="uniCourse">
-    <option default>Select</option>
-    <option *ngFor="let c of universityCourse" value="{{c.universityCourseName}}">{{c.universityCourseName}}</option>
-  </select>
-</div>
-
- 
- 
-</div>
-
-    <button  type="submit" class="btn btn-primary">Submit</button>
-  </form>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

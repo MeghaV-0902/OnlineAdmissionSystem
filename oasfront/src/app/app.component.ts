@@ -8,5 +8,5 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class AppComponent {
   title = 'Testing';
-  
+
 }

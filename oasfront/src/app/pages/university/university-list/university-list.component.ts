@@ -11,35 +11,34 @@ import { University } from '../university';
 })
 export class UniversityListComponent implements OnInit {
   universities: University[]
-  uniId=0;
+  uniId = 0;
 
-  constructor(private universityService:UniversityService,private router: Router) { }
+  constructor(private universityService: UniversityService, private router: Router) { }
 
   ngOnInit(): void {
     this.getUniversities();
   }
-  
+
   private getUniversities() {
-    this.universityService.getUniversities().subscribe(data =>{
-      this.universities=data;
+    this.universityService.getUniversities().subscribe(data => {
+      this.universities = data;
     })
   }
 
-  updateUniversity(id:number){
+  updateUniversity(id: number) {
     console.log('inside updateuniversity')
-    this.router.navigate(['admin/university-update',id]);
+    this.router.navigate(['admin/university-update', id]);
   }
 
-  deleteUniversity(id:number)
-  {  
+  deleteUniversity(id: number) {
     this.universityService.deleteUniversity(id).subscribe(
-      (data)=>{
+      (data) => {
         Swal.fire('Successfully deleted !!', 'University id : ' + id, 'success');
-        setTimeout(function(){
+        setTimeout(function () {
           window.location.reload();
-       }, 2000);
+        }, 2000);
       }
-    
+
     )
   }
 

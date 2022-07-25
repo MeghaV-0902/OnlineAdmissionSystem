@@ -6,29 +6,28 @@ import baseUrl from './helper';
 
 @Injectable({
   providedIn: 'root'
-}) 
+})
 export class CollegeService {
-  
-  private apiServerUrlc=baseUrl;
 
-  constructor(private http:HttpClient) { }
+  private apiServerUrlc = baseUrl;
 
-  public getColleges(): Observable<College[]>{
-    return this.http.get<College[]>(`${baseUrl}/user/college/all`); 
+  constructor(private http: HttpClient) { }
+
+  public getColleges(): Observable<College[]> {
+    return this.http.get<College[]>(`${baseUrl}/user/college/all`);
   }
 
-  public getCollegeById(id: number):Observable<College>
-  {
-    return this.http.get<College>(`${baseUrl}/user/college/find/${id}`); 
+  public getCollegeById(id: number): Observable<College> {
+    return this.http.get<College>(`${baseUrl}/user/college/find/${id}`);
   }
 
-  public addCollege(college: College): Observable<College>{
-    return this.http.post<College>(`${this.apiServerUrlc}/user/college/add`,college);
+  public addCollege(college: College): Observable<College> {
+    return this.http.post<College>(`${this.apiServerUrlc}/user/college/add`, college);
   }
-  public updateCollege(college:College): Observable<College>{
-    return this.http.put<College>(`${this.apiServerUrlc}/user/college/update`,college);
+  public updateCollege(college: College): Observable<College> {
+    return this.http.put<College>(`${this.apiServerUrlc}/user/college/update`, college);
   }
-  public deleteCollege(id:number): Observable<void>{
+  public deleteCollege(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiServerUrlc}/user/college/delete/${id}`);
   }
 }

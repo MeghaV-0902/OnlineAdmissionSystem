@@ -1,31 +1,32 @@
-<form name="universityform" (ngSubmit)="validateForm()" >
+<form name="universityform" (ngSubmit)="validateForm()">
     <div class="form-group">
-      <label >University Name</label><br>
-      <mat-hint> <span *ngIf="name.invalid && name.touched"  class="error">Name Field is Not Valid</span></mat-hint>
-      <input #name="ngModel" type="text" class="form-control" id="Name"  placeholder="Enter University Name"
-      [(ngModel)]="university.name" name="name" ngModel required>
-      
+        <label>University Name</label><br>
+        <mat-hint> <span *ngIf="name.invalid && name.touched" class="error">Name Field is Not Valid</span></mat-hint>
+        <input #name="ngModel" type="text" class="form-control" id="Name" placeholder="Enter University Name"
+            [(ngModel)]="university.name" name="name" ngModel required>
+
     </div>
 
     <div class="form-group">
-        <label >University Email</label><br>
-        <mat-hint> <span *ngIf="email.invalid && email.touched"  class="error">Email Field is Not Valid</span></mat-hint>
-        <input #email="ngModel" type="text" class="form-control" id="Email"  placeholder="Enter University Email"
-        [(ngModel)]="university.email" name="email" ngModel required>
+        <label>University Email</label><br>
+        <mat-hint> <span *ngIf="email.invalid && email.touched" class="error">Email Field is Not Valid</span></mat-hint>
+        <input #email="ngModel" type="text" class="form-control" id="Email" placeholder="Enter University Email"
+            [(ngModel)]="university.email" name="email" ngModel required>
     </div>
-     
+
     <div class="form-group">
-        <label >University Location</label><br>
-        <mat-hint> <span *ngIf="loc.invalid && loc.touched"  class="error">Location Field is Not Valid</span></mat-hint>
-        <input #loc="ngModel" type="text" class="form-control" id="Location"  placeholder="Enter University Location"
-        [(ngModel)]="university.location" name="location" ngModel required>
+        <label>University Location</label><br>
+        <mat-hint> <span *ngIf="loc.invalid && loc.touched" class="error">Location Field is Not Valid</span></mat-hint>
+        <input #loc="ngModel" type="text" class="form-control" id="Location" placeholder="Enter University Location"
+            [(ngModel)]="university.location" name="location" ngModel required>
     </div>
     <div class="form-group">
-        <label >UniversityPhone</label><br>
-        <mat-hint> <span *ngIf="ph.invalid && ph.touched"  class="error">Phone Number Field is Not Valid</span></mat-hint>
-        <input #ph="ngModel" type="text" class="form-control" id="Phone"  placeholder="Enter University Phone"
-        [(ngModel)]="university.phone" name="phone" ngModel required pattern="^[0-9]{10}$">
+        <label>University Phone</label><br>
+        <mat-hint> <span *ngIf="ph.invalid && ph.touched" class="error">Phone Number Field is Not Valid</span>
+        </mat-hint>
+        <input #ph="ngModel" type="text" class="form-control" id="Phone" placeholder="Enter University Phone"
+            [(ngModel)]="university.phone" name="phone" ngModel required pattern="^[0-9]{10}$">
     </div>
 
     <button type="submit" class="btn btn-success">Submit</button>
-  </form>
+</form>

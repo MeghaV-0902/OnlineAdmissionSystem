@@ -9,46 +9,45 @@ import { UniversityCourseServiceService } from '../../university-course-service.
   styleUrls: ['./university-course.component.css']
 })
 export class UniversityCourseComponent implements OnInit {
-  universitycourse:UniversityCourse=new UniversityCourse;
-  public course={
-    id:null,
-    universityCourseName:'',
-    universityCourseDuration:'',
-    code:'',
+  universitycourse: UniversityCourse = new UniversityCourse;
+  public course = {
+    id: null,
+    universityCourseName: '',
+    universityCourseDuration: '',
+    code: '',
   }
 
-  constructor(private uniersityCourseService:UniversityCourseServiceService, private router:Router) { }
- 
+  constructor(private uniersityCourseService: UniversityCourseServiceService, private router: Router) { }
+
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    this.course.id=this.universitycourse.id;
-    this.course.universityCourseName=this.universitycourse.universityCourseName;
-    this.course.universityCourseDuration=this.universitycourse.universityCourseDuration;
-    this.course.code=this.universitycourse.code;
- 
+  onSubmit() {
+    this.course.id = this.universitycourse.id;
+    this.course.universityCourseName = this.universitycourse.universityCourseName;
+    this.course.universityCourseDuration = this.universitycourse.universityCourseDuration;
+    this.course.code = this.universitycourse.code;
+
     console.log(this.universitycourse);
     this.saveUniversityCourse();
     alert("Course Added !.");
     this.goToCourses();
   }
-  
+
   saveUniversityCourse() {
-    this.uniersityCourseService.addUniversityCourse(this.course).subscribe(data=>{
+    this.uniersityCourseService.addUniversityCourse(this.course).subscribe(data => {
       console.log(data);
       console.log(this.course)
-      
+
     },
-    error=>console.log(error));
+      error => console.log(error));
   }
 
-goToCourses()
-{
-  console.log("Herer")
-  this.router.navigate(['admin/university-course-list'])
-}
-  
+  goToCourses() {
+    console.log("Herer")
+    this.router.navigate(['admin/university-course-list'])
+  }
+
 
 
 }

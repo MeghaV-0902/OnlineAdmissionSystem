@@ -31,117 +31,117 @@ import { ViewApplicationComponent } from './pages/application/view-application/v
 
 const routes: Routes = [
   {
-    path:'',
-    component:HomeComponent,
-    pathMatch:'full',
+    path: '',
+    component: HomeComponent,
+    pathMatch: 'full',
   },
   {
-    path:'signup',
-    component:SignupComponent,
-    pathMatch:'full',
+    path: 'signup',
+    component: SignupComponent,
+    pathMatch: 'full',
   },
   {
-    path:'login',
-    component:LoginComponent,
-    pathMatch:'full',
+    path: 'login',
+    component: LoginComponent,
+    pathMatch: 'full',
   },
   {
-    path:'admin',
-    component:DashboardComponent,
-    canActivate:[AdminGuard],
-    children:[{
-      path:'',
-      component:WelcomeComponent,
+    path: 'admin',
+    component: DashboardComponent,
+    canActivate: [AdminGuard],
+    children: [{
+      path: '',
+      component: WelcomeComponent,
     },
-      {
-        path:'profile',
-        component:ProfileComponent,
-      },
-      {
-        path:'update-user/:id',
-        component:UpdateUserComponent,
-      },
-      {
-        path:'view-students',
-        component:ViewStudentsComponent,
-      },
-      {
-        path:'update-student/:id',
-        component:UpdateStudentComponent,
-      },
-      {
-        path:'university-list',
-        component:UniversityListComponent,
-      },
-      {
-        path:'university-add',
-        component:UniversityAddComponent,
-      },
-      {
-        path:'college-list',
-        component:CollegeListComponent,
-      },
-      {
-        path:'college-add',
-        component:CollegeAddComponent,
-      },
-      {
-        path:'university-update/:id',
-        component:UniversityUpdateComponent,
-      }
+    {
+      path: 'profile',
+      component: ProfileComponent,
+    },
+    {
+      path: 'update-user/:id',
+      component: UpdateUserComponent,
+    },
+    {
+      path: 'view-students',
+      component: ViewStudentsComponent,
+    },
+    {
+      path: 'update-student/:id',
+      component: UpdateStudentComponent,
+    },
+    {
+      path: 'university-list',
+      component: UniversityListComponent,
+    },
+    {
+      path: 'university-add',
+      component: UniversityAddComponent,
+    },
+    {
+      path: 'college-list',
+      component: CollegeListComponent,
+    },
+    {
+      path: 'college-add',
+      component: CollegeAddComponent,
+    },
+    {
+      path: 'university-update/:id',
+      component: UniversityUpdateComponent,
+    }
       ,
-      {
-        path:'college-update/:id',
-        component:CollegeUpdateComponent,
-      },
-      {
-        path:'application-list',
-        component:ApplicationListComponent,
-      },
-      {
-        path:'college-course',
-        component:CollegeCourseComponent,
-      },
-      {
-        path:'college-course-list',
-        component:CollegeCourseListComponent,
-      },
-      {
-        path:'university-course',
-        component:UniversityCourseComponent,
-      },
-      {
-        path:'university-course-list',
-        component:UniversityCourseListComponent,
-      },
+    {
+      path: 'college-update/:id',
+      component: CollegeUpdateComponent,
+    },
+    {
+      path: 'application-list',
+      component: ApplicationListComponent,
+    },
+    {
+      path: 'college-course',
+      component: CollegeCourseComponent,
+    },
+    {
+      path: 'college-course-list',
+      component: CollegeCourseListComponent,
+    },
+    {
+      path: 'university-course',
+      component: UniversityCourseComponent,
+    },
+    {
+      path: 'university-course-list',
+      component: UniversityCourseListComponent,
+    },
     ]
   },
   {
-    path:'user-dashboard',
-    component:UserDashboardComponent,
-    canActivate:[StudentGuard],
-    children:[
+    path: 'user-dashboard',
+    component: UserDashboardComponent,
+    canActivate: [StudentGuard],
+    children: [
       {
-        path:'',
-        component:UserWelcomeComponent,
+        path: '',
+        component: UserWelcomeComponent,
       },
       {
-        path:'profile',
-        component:ProfileComponent,
+        path: 'profile',
+        component: ProfileComponent,
       },
       {
-        path:'update-user/:id',
-        component:UpdateUserComponent,
+        path: 'update-user/:id',
+        component: UpdateUserComponent,
       },
       {
-        path:'application-add',
-        component:ApplicationAddComponent,
+        path: 'application-add',
+        component: ApplicationAddComponent,
       },
       {
-        path:'view-application',
-        component:ViewApplicationComponent,
+        path: 'view-application',
+        component: ViewApplicationComponent,
       }
-      
+
     ]
   },
 ];

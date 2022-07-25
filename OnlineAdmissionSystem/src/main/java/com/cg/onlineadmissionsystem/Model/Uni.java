@@ -7,7 +7,7 @@ import java.io.Serializable;
 //@Table(name="users")
 public class Uni implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false,updatable = false)
     private Long id;
     private String name;

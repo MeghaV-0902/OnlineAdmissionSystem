@@ -8,14 +8,14 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./navbar.component.css']
 })
 
- export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit {
 
-  isLoggedIn=false;
-  user=null;
-  
+  isLoggedIn = false;
+  user = null;
 
-  constructor(public login: LoginService,private router:Router) { }
- 
+
+  constructor(public login: LoginService, private router: Router) { }
+
   ngOnInit(): void {
     this.isLoggedIn = this.login.isLoggedIn();
     this.user = this.login.getUser();
@@ -25,8 +25,7 @@ import { LoginService } from 'src/app/services/login.service';
     })
   }
 
-  public logout()
-  {
+  public logout() {
     this.login.logout();
     window.location.reload();
     //this.router.navigate(['/'])

@@ -1,31 +1,31 @@
 <br>
 <table class="table table-striped">
     <thead>
-<tr>
-    <th>CollegeID</th>
-    <!-- <th>UniversityName</th> -->
-    <th>CollegeName</th>
-    <th>CollegeEmail</th>
-    <th>CollegeLocation</th>
-    <th>CollegePhone</th>
-    <!-- <th>UniversityImage</th> -->
-    <!-- <th>UniversityCode</th> -->
-    <th>Actions</th>
- </tr> 
+        <tr>
+            <th>CollegeID</th>
+            <!-- <th>UniversityName</th> -->
+            <th>CollegeName</th>
+            <th>CollegeEmail</th>
+            <th>CollegeLocation</th>
+            <th>CollegePhone</th>
+            <!-- <th>UniversityImage</th> -->
+            <!-- <th>UniversityCode</th> -->
+            <th>Actions</th>
+        </tr>
     </thead>
     <tbody>
         <!-- interpolationoperator {{}} gives value -->
-<tr *ngFor="let c of colleges">
-<td> {{c.id}}</td>
-<!-- <td>{{c.university}}</td> -->
-<td> {{c.name}}</td>
-<td> {{c.email}}</td>
-<td> {{c.location}}</td>
-<td> {{c.phone}}</td>
-<!-- <td> {{u.imageUrl}}</td> -->
-<!-- <td> {{u.UniversityCode}}</td> -->
-<td><button (click)="updateCollege(c.id)" class="btn btn-warning">Edit</button>&nbsp;&nbsp;<button (click)="deleteCollege(c.id)" class="btn btn-danger">Delete</button></td>
-</tr>
+        <tr *ngFor="let c of colleges">
+            <td> {{c.id}}</td>
+            <!-- <td>{{c.university}}</td> -->
+            <td> {{c.name}}</td>
+            <td> {{c.email}}</td>
+            <td> {{c.location}}</td>
+            <td> {{c.phone}}</td>
+            <!-- <td> {{u.imageUrl}}</td> -->
+            <!-- <td> {{u.UniversityCode}}</td> -->
+            <td><button (click)="updateCollege(c.id)" class="btn btn-warning">Edit</button>&nbsp;&nbsp;<button
+                    (click)="deleteCollege(c.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
     </tbody>
 </table>
-

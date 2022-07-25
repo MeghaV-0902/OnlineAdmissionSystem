@@ -10,46 +10,45 @@ import { CollegeCourse } from './college-course';
 })
 export class CollegeCourseComponent implements OnInit {
 
-  collegecourse:CollegeCourse=new CollegeCourse;
-  public course={
-    id:null,
-    collegeCourseName:'',
-    collegeCourseDuration:'',
-    code:'',
+  collegecourse: CollegeCourse = new CollegeCourse;
+  public course = {
+    id: null,
+    collegeCourseName: '',
+    collegeCourseDuration: '',
+    code: '',
   }
-   
-  constructor(private collegeCourseService:CollegeCourseService, private router:Router) { }
+
+  constructor(private collegeCourseService: CollegeCourseService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    this.course.id=this.collegecourse.id;
-    this.course.collegeCourseName=this.collegecourse.collegeCourseName;
-    this.course.collegeCourseDuration=this.collegecourse.collegeCourseDuration;
-    this.course.code=this.collegecourse.code;
- 
+  onSubmit() {
+    this.course.id = this.collegecourse.id;
+    this.course.collegeCourseName = this.collegecourse.collegeCourseName;
+    this.course.collegeCourseDuration = this.collegecourse.collegeCourseDuration;
+    this.course.code = this.collegecourse.code;
+
     console.log(this.collegecourse);
     this.saveCollegeCourse();
     alert("Course Added !.");
     this.goToCourses();
   }
-  
+
   saveCollegeCourse() {
-    this.collegeCourseService.addCollegeCourse(this.course).subscribe(data=>{
+    this.collegeCourseService.addCollegeCourse(this.course).subscribe(data => {
       console.log(data);
       console.log(this.course)
-      
+
     },
-    error=>console.log(error));
+      error => console.log(error));
   }
 
-goToCourses()
-{
-  console.log("Herer")
-  this.router.navigate(['admin/college-course-list'])
-}
-  
+  goToCourses() {
+    console.log("Herer")
+    this.router.navigate(['admin/college-course-list'])
+  }
+
 
 
 }

@@ -11,18 +11,18 @@ import { Application } from '../application';
   styleUrls: ['./view-application.component.css']
 })
 export class ViewApplicationComponent implements OnInit {
-  application:Application[];
-  app:Application= new Application();
-   app2:Application;
-  currentUser=null;
-  constructor(private applicationService:ApplicationServiceService, private router:Router, private user:LoginService) { } 
+  application: Application[];
+  app: Application = new Application();
+  app2: Application;
+  currentUser = null;
+  constructor(private applicationService: ApplicationServiceService, private router: Router, private user: LoginService) { }
 
   ngOnInit(): void {
     this.user.getCurrentUser().subscribe(
-      (user:any)=>{
-        this.currentUser=user;
+      (user: any) => {
+        this.currentUser = user;
       },
-      (error)=>{
+      (error) => {
         alert("error");
       }
     )
@@ -30,8 +30,8 @@ export class ViewApplicationComponent implements OnInit {
   }
 
   private getApplications() {
-    this.applicationService.getApplications().subscribe(data =>{
-      this.application=data;
+    this.applicationService.getApplications().subscribe(data => {
+      this.application = data;
       console.log(this.application);
     })
   }

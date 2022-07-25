@@ -12,10 +12,10 @@ import Swal from 'sweetalert2';
 })
 export class ViewStudentsComponent implements OnInit {
 
-  forAuthority=null
-  auth=[];
+  forAuthority = null
+  auth = [];
   users: Person[];
-  constructor(private userService: UserService, private login: LoginService,private router: Router) { }
+  constructor(private userService: UserService, private login: LoginService, private router: Router) { }
 
   ngOnInit(): void {
     this.getStudents();
@@ -23,34 +23,30 @@ export class ViewStudentsComponent implements OnInit {
 
 
 
-  } 
+  }
 
-  getStudents()
-  {
+  getStudents() {
     this.userService.getStudentsList().subscribe(
-      data=>
-      {
-        this.forAuthority=data;
-        this.users=data;
+      data => {
+        this.forAuthority = data;
+        this.users = data;
       }
     );
   }
 
-  updateStudent(id:number)
-  {
-    this.router.navigate(['admin/update-student',id])
+  updateStudent(id: number) {
+    this.router.navigate(['admin/update-student', id])
   }
 
-  deleteStudent(id:number)
-  {
+  deleteStudent(id: number) {
     this.userService.deleteUserById(id).subscribe(
-      (data)=>{
+      (data) => {
         Swal.fire('Successfully deleted !!', 'User id : ' + id, 'success');
-        setTimeout(function(){
+        setTimeout(function () {
           window.location.reload();
-       }, 2000);
+        }, 2000);
       }
-    
+
     )
   }
 

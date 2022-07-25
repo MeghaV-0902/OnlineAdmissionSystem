@@ -1,28 +1,26 @@
-
 <br>
 <table class="table table-striped">
     <thead>
-<tr>
-    <th>Course ID</th>
-    <th>Name</th>
-    <th>Duration</th>
-    <th>Code</th>
-    <!-- <th>UniversityImage</th> -->
-    <!-- <th>UniversityCode</th> -->
-    <th>Actions</th>
- </tr>  
+        <tr>
+            <th>Course ID</th>
+            <th>Name</th>
+            <th>Duration</th>
+            <th>Code</th>
+            <!-- <th>UniversityImage</th> -->
+            <!-- <th>UniversityCode</th> -->
+            <th>Actions</th>
+        </tr>
     </thead>
     <tbody>
         <!-- interpolationoperator {{}} gives value -->
-<tr *ngFor="let c of universityCourse">
-<td> {{c.id}}</td>
-<td> {{c.universityCourseName}}</td>
-<td> {{c.universityCourseDuration}}</td>
-<td> {{c.code}}</td>
-<!-- <td> {{u.imageUrl}}</td> -->
-<!-- <td> {{u.UniversityCode}}</td> -->
-<td><button (click)="deleteUniversityCourse(c.id)" class="btn btn-danger">Delete</button></td>
-</tr>
-    </tbody> 
+        <tr *ngFor="let c of universityCourse">
+            <td> {{c.id}}</td>
+            <td> {{c.universityCourseName}}</td>
+            <td> {{c.universityCourseDuration}}</td>
+            <td> {{c.code}}</td>
+            <!-- <td> {{u.imageUrl}}</td> -->
+            <!-- <td> {{u.UniversityCode}}</td> -->
+            <td><button (click)="deleteUniversityCourse(c.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </tbody>
 </table>
- 

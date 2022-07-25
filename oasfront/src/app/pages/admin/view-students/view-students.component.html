@@ -3,8 +3,8 @@
     <mat-card-content class="pr">
         <div class="bootstrap-wrapper">
             <div class="container mr">
-                <div class="row"> 
-                    
+                <div class="row">
+
                     <div class="col-md-10 offset-md-1">
                         <!-- //table details -->
                         <table class="table1 text-center">
@@ -18,24 +18,35 @@
                                     <th class="tablehead">Mobile Number</th>
                                     <th class="tablehead">Aadhar Number</th>
                                     <th class="tablehead">Update a student</th>
-                                    <th class="tablehead">Delete a student</th> 
+                                    <th class="tablehead">Delete a student</th>
                                 </tr>
-                            </thead> 
+                            </thead>
                             <tbody>
                                 <tr *ngFor="let student of forAuthority; let i =index">
-                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">{{student.userId}}</td>
-                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">{{student.firstName}}</td>
-                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">{{student.middleName}}</td>
-                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">{{student.lastName}}</td>
-                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">{{student.email}}</td>
-                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">{{student.mobileNumber}}</td>
-                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">{{student.aadharCardNo}}</td>
-                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'"><button (click)="updateStudent(student.userId)" mat-raised-button color="primary">Update</button></td>
-                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'"><button (click)="deleteStudent(student.userId)" mat-raised-button color="warn">Delete</button></td>
-                        
+                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">{{student.userId}}
+                                    </td>
+                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">
+                                        {{student.firstName}}</td>
+                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">
+                                        {{student.middleName}}</td>
+                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">{{student.lastName}}
+                                    </td>
+                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">{{student.email}}
+                                    </td>
+                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">
+                                        {{student.mobileNumber}}</td>
+                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'">
+                                        {{student.aadharCardNo}}</td>
+                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'"><button
+                                            (click)="updateStudent(student.userId)" mat-raised-button
+                                            color="primary">Update</button></td>
+                                    <td *ngIf="forAuthority[i].authorities[0].authority=='STUDENT'"><button
+                                            (click)="deleteStudent(student.userId)" mat-raised-button
+                                            color="warn">Delete</button></td>
+
                                 </tr>
                             </tbody>
-                    
+
                         </table>
                     </div>
                 </div>

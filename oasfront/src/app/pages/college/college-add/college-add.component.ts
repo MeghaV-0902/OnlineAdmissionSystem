@@ -12,33 +12,33 @@ import { College } from '../college';
 })
 export class CollegeAddComponent implements OnInit {
 
-  
-  college:College=new College();
-  universities:University[];
 
-  @ViewChild('unis') unis!:ElementRef;
-  selectedUniversity='';
-  
+  college: College = new College();
+  universities: University[];
 
-  constructor(private collegeService:CollegeService,private router: Router,private universityService:UniversityService) { }
+  @ViewChild('unis') unis!: ElementRef;
+  selectedUniversity = '';
+
+
+  constructor(private collegeService: CollegeService, private router: Router, private universityService: UniversityService) { }
 
   ngOnInit(): void {
   }
 
-  saveCollege(){
-    this.college.university=this.selectedUniversity;
-    this.collegeService.addCollege(this.college).subscribe(data=>{
+  saveCollege() {
+    this.college.university = this.selectedUniversity;
+    this.collegeService.addCollege(this.college).subscribe(data => {
       console.log(data);
       this.goToColleges();
     },
-    error=>console.log(error));
+      error => console.log(error));
   }
 
-  goToColleges(){
+  goToColleges() {
     this.router.navigate(['admin/college-list'])
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.college);
     this.saveCollege();
     alert("University Added Successfully.");
@@ -50,25 +50,25 @@ export class CollegeAddComponent implements OnInit {
   //   })
   // }
 
-  onSelected(): void{
-    this.selectedUniversity=this.unis.nativeElement.value;
+  onSelected(): void {
+    this.selectedUniversity = this.unis.nativeElement.value;
   }
 
   validateForm() {
     console.log('inside validateform function')
-    let x=document.forms["collegeform"]["name"].value;
-    let y=document.forms["collegeform"]["email"].value;
-    let z=document.forms["collegeform"]["location"].value;
-    let v=document.forms["collegeform"]["phone"].value;
-    if(x==''|| y==''|| z=='' || v==''){
+    let x = document.forms["collegeform"]["name"].value;
+    let y = document.forms["collegeform"]["email"].value;
+    let z = document.forms["collegeform"]["location"].value;
+    let v = document.forms["collegeform"]["phone"].value;
+    if (x == '' || y == '' || z == '' || v == '') {
       alert('Field cannot be empty');
       //return false;
     }
-    else{
-    this.saveCollege();
-    alert("College Added Successfully.");
+    else {
+      this.saveCollege();
+      alert("College Added Successfully.");
     }
-        
+
   }
 
 
